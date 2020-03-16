@@ -1,0 +1,72 @@
+const serverErrorPage = "error500.html";
+
+$(".wrapper").ready(function () {
+    $.get("/start",
+        {
+            "command": "ALL_DATA"
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        let eTable = "";
+        $.each(response, function (index, value) {
+            eTable += "<tr>" + "<th>" + "<ul>";
+            $.each(JSON.parse(value), function (index, iValue) {
+                eTable += "<li>" + iValue.name + "</li>";
+            });
+            eTable += "</th>" + "<th>" + "<li>" + index + "</li>";
+            eTable += "</ul>" + "</th>" + "</tr>";
+        });
+        $(".wrapper").html(eTable);
+    }
+});
+
+$(".btnAdd").click(function () {
+    const cities = [];
+    cities.push("Нью-Йорк");
+    cities.push("Нью-Ёрк");
+    const message = "В Нью-Йорке можно";
+    let newData = { message : message, cities : cities};
+    $.post("/start",
+        {
+            command : "ADD_DATA",
+            new : JSON.stringify(newData)
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        if (response.exist) {
+            alert(response.exist);
+        } else {
+            alert(response.success);
+        }
+    }
+});
+
+$(".btnUpdate").click(function () {
+    const cities = [];
+    cities.push("Нью-Йорк");
+    cities.push("Нью-Ёрк");
+    cities.push("Нью Йорк");
+    const message = "В Нью-Йорке можно посетить следующие места: Статуя Свободы, Таймс Сквер и Небоскреб Эмпайр-стейт-Билдинг.";
+    const messageId = 6;
+    let updateData = { message : message, cities : cities, messageId : messageId};
+
+    $.post("/start",
+        {
+            command : "UPDATE_DATA",
+            new : JSON.stringify(updateData)
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        if (response.exist) {
+            alert(response.exist);
+        } else {
+            alert(response.success);
+        }
+    }
+});
