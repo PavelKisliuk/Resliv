@@ -123,3 +123,26 @@ $(".btnDeleteCities").click(function () {
         }
     }
 });
+
+$(".btnDelete").click(function () {
+    const message = "В Нью-Йорке можно посетить следующие места: Статуя Свободы, Таймс Сквер и Небоскреб Эмпайр-стейт-Билдинг.";
+    const messageId = 6;
+
+    const deleteMessage = {id : messageId, message : message};
+
+    $.post("/start",
+        {
+            command : "REMOVE_DATA",
+            new : JSON.stringify(deleteMessage)
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        if (response.exist) {
+            alert(response.exist);
+        } else {
+            alert(response.success);
+        }
+    }
+});

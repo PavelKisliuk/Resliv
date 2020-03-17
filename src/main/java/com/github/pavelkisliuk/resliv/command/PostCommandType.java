@@ -4,7 +4,8 @@ public enum PostCommandType {
 	ADD_DATA(AddDataCommand.of()),
 	ADD_CITY(AddCityCommand.of()),
 	UPDATE_MESSAGE(UpdateMessageCommand.of()),
-	REMOVE_CITY(CityRemoveCommand.of());
+	REMOVE_CITY(CityRemoveCommand.of()),
+	REMOVE_DATA(DataRemoveCommand.of());
 
 	private Command command;
 

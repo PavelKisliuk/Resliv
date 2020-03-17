@@ -1,6 +1,5 @@
 package com.github.pavelkisliuk.resliv.command;
 
-import com.github.pavelkisliuk.resliv.entity.City;
 import com.github.pavelkisliuk.resliv.entity.Message;
 import com.github.pavelkisliuk.resliv.service.MessageUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;

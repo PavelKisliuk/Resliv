@@ -15,6 +15,5 @@ public interface CityRepository extends CrudRepository<City, Long> {
 
 	boolean existsCityByName(String name);
 
-	@Override
-	<S extends City> S save(S s);
+	void deleteAllByMessageId(Long messageId);
 }
