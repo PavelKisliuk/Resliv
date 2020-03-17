@@ -1,7 +1,7 @@
 package com.github.pavelkisliuk.resliv.service;
 
 import com.github.pavelkisliuk.resliv.entity.City;
-import com.github.pavelkisliuk.resliv.repository.specifier.NewCityInsertSpecifier;
+import com.github.pavelkisliuk.resliv.repository.specifier.CityInsertSpecifier;
 import com.github.pavelkisliuk.resliv.validation.DataEmptyValidator;
 import com.github.pavelkisliuk.resliv.validation.DataExistValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class AddCityInsertService {
+public class CityInsertService {
 	private static final String KEY_WARN = "warn";
 	private static final String KEY_SUCCESS = "success";
 
@@ -21,7 +21,7 @@ public class AddCityInsertService {
 
 	private DataExistValidator dataExistValidator;
 	private DataEmptyValidator dataEmptyValidator;
-	private NewCityInsertSpecifier newCityInsertSpecifier;
+	private CityInsertSpecifier cityInsertSpecifier;
 
 	@Autowired
 	public void setDataExistValidator(DataExistValidator dataExistValidator) {
@@ -34,14 +34,14 @@ public class AddCityInsertService {
 	}
 
 	@Autowired
-	public void setNewCityInsertSpecifier(NewCityInsertSpecifier newCityInsertSpecifier) {
-		this.newCityInsertSpecifier = newCityInsertSpecifier;
+	public void setCityInsertSpecifier(CityInsertSpecifier cityInsertSpecifier) {
+		this.cityInsertSpecifier = cityInsertSpecifier;
 	}
 
 	public Map<String, String> serve(City newCity) {
 		Map<String, String> response = new HashMap<>();
 
-		if(dataEmptyValidator.isEmptyValue(newCity.getName())) {
+		if (dataEmptyValidator.isEmptyValue(newCity.getName())) {
 			response.put(KEY_WARN, VALUE_EMPTY);
 			return response;
 		}
@@ -50,7 +50,7 @@ public class AddCityInsertService {
 			response.put(KEY_WARN, VALUE_CITY_EXIST);
 			return response;
 		}
-		newCityInsertSpecifier.insert(newCity);
+		cityInsertSpecifier.insert(newCity);
 
 		response.put(KEY_SUCCESS, VALUE_SUCCESS);
 		return response;

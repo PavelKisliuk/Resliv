@@ -41,7 +41,7 @@ public class MessageUpdateService {
 	public Map<String, String> serve(Message newMessage) {
 		Map<String, String> response = new HashMap<>();
 
-		if(dataEmptyValidator.isEmptyValue(newMessage.getMessage())) {
+		if (dataEmptyValidator.isEmptyValue(newMessage.getMessage())) {
 			response.put(KEY_WARN, VALUE_EMPTY);
 			return response;
 		}

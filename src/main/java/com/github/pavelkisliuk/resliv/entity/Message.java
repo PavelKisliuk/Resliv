@@ -1,10 +1,7 @@
 package com.github.pavelkisliuk.resliv.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity(name = "Messages")
 public class Message implements ReslivData {
@@ -29,5 +26,31 @@ public class Message implements ReslivData {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Message message1 = (Message) o;
+
+		if (!Objects.equals(id, message1.id)) return false;
+		return Objects.equals(message, message1.message);
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + (message != null ? message.hashCode() : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Message{" +
+				"id=" + id +
+				", message='" + message + '\'' +
+				'}';
 	}
 }

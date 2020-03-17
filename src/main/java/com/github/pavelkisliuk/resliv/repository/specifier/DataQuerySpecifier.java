@@ -8,15 +8,13 @@ import com.github.pavelkisliuk.resliv.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Component
-public class AllDataSelectSpecifier {
+public class DataQuerySpecifier {
 	private MessageRepository messageRepository;
-
 	private CityRepository cityRepository;
 
 	@Autowired
@@ -32,7 +30,7 @@ public class AllDataSelectSpecifier {
 	public Map<String, String> query() {
 		Map<String, String> allData = new HashMap<>();
 		List<Message> messageList = messageRepository.findAll();
-		for(Message message : messageList) {
+		for (Message message : messageList) {
 			List<City> cityList = cityRepository.findByMessageIdOrderByName(message.getId());
 			allData.put(message.getMessage(), Command.GSON.toJson(cityList));
 		}

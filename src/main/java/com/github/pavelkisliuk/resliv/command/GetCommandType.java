@@ -1,7 +1,7 @@
 package com.github.pavelkisliuk.resliv.command;
 
 public enum GetCommandType {
-	ALL_DATA(AllDataCommand.of());
+	ALL_DATA(DataQueryCommand.of());
 
 	private Command command;
 

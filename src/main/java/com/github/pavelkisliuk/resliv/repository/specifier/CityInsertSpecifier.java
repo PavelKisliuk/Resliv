@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class NewCityInsertSpecifier {
+public class CityInsertSpecifier {
 	private CityRepository cityRepository;
 
 	@Autowired

@@ -34,7 +34,7 @@ public class CityRemoveService {
 	public Map<String, String> serve(List<City> cityList) {
 		Map<String, String> response = new HashMap<>();
 
-		if(!dataExistValidator.isEnoughCities(cityList)) {
+		if (!dataExistValidator.isEnoughCities(cityList)) {
 			response.put(KEY_WARN, VALUE_NOT_ENOUGH);
 			return response;
 		}

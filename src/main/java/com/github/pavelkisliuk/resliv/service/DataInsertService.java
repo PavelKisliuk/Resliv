@@ -2,7 +2,7 @@ package com.github.pavelkisliuk.resliv.service;
 
 import com.github.pavelkisliuk.resliv.entity.Message;
 import com.github.pavelkisliuk.resliv.entity.NewData;
-import com.github.pavelkisliuk.resliv.repository.specifier.NewDataInsertSpecifier;
+import com.github.pavelkisliuk.resliv.repository.specifier.DataInsertSpecifier;
 import com.github.pavelkisliuk.resliv.validation.DataEmptyValidator;
 import com.github.pavelkisliuk.resliv.validation.DataExistValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class AddDataInsertService {
+public class DataInsertService {
 	private static final String KEY_WARN = "warn";
 	private static final String KEY_SUCCESS = "success";
 
@@ -24,7 +24,7 @@ public class AddDataInsertService {
 
 	private DataExistValidator dataExistValidator;
 	private DataEmptyValidator dataEmptyValidator;
-	private NewDataInsertSpecifier newDataInsertSpecifier;
+	private DataInsertSpecifier dataInsertSpecifier;
 
 	@Autowired
 	public void setDataExistValidator(DataExistValidator dataExistValidator) {
@@ -37,8 +37,8 @@ public class AddDataInsertService {
 	}
 
 	@Autowired
-	public void setNewDataInsertSpecifier(NewDataInsertSpecifier newDataInsertSpecifier) {
-		this.newDataInsertSpecifier = newDataInsertSpecifier;
+	public void setDataInsertSpecifier(DataInsertSpecifier dataInsertSpecifier) {
+		this.dataInsertSpecifier = dataInsertSpecifier;
 	}
 
 	public Map<String, String> serve(NewData newData) {
@@ -63,7 +63,7 @@ public class AddDataInsertService {
 			response.put(KEY_WARN, VALUE_CITY_EXIST + city.get());
 			return response;
 		}
-		newDataInsertSpecifier.insert(message, newData.getCities());
+		dataInsertSpecifier.insert(message, newData.getCities());
 
 		response.put(KEY_SUCCESS, VALUE_SUCCESS);
 		return response;

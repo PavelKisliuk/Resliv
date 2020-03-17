@@ -9,8 +9,6 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends CrudRepository<Message, Long> {
 	List<Message> findAll();
-	boolean existsMessageByMessage(String message);
 
-	@Override
-	<S extends Message> S save(S s);
+	boolean existsMessageByMessage(String message);
 }

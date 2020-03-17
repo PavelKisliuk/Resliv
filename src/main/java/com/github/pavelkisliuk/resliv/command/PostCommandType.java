@@ -1,9 +1,9 @@
 package com.github.pavelkisliuk.resliv.command;
 
 public enum PostCommandType {
-	ADD_DATA(AddDataCommand.of()),
-	ADD_CITY(AddCityCommand.of()),
-	UPDATE_MESSAGE(UpdateMessageCommand.of()),
+	ADD_DATA(DataInsertCommand.of()),
+	ADD_CITY(CityInsertCommand.of()),
+	UPDATE_MESSAGE(MessageUpdateCommand.of()),
 	REMOVE_CITY(CityRemoveCommand.of()),
 	REMOVE_DATA(DataRemoveCommand.of());
 

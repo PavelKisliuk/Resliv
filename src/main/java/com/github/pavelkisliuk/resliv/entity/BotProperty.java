@@ -4,6 +4,7 @@ import com.github.pavelkisliuk.resliv.config.AppConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 public class BotProperty {
@@ -32,5 +33,27 @@ public class BotProperty {
 
 	public Properties getProperties() {
 		return properties;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		BotProperty that = (BotProperty) o;
+
+		return Objects.equals(properties, that.properties);
+	}
+
+	@Override
+	public int hashCode() {
+		return properties != null ? properties.hashCode() : 0;
+	}
+
+	@Override
+	public String toString() {
+		return "BotProperty{" +
+				"properties=" + properties +
+				'}';
 	}
 }

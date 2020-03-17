@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
-public class UpdateMessageCommand implements Command {
-	private static UpdateMessageCommand updateMessageCommand;
+public class MessageUpdateCommand implements Command {
+	private static MessageUpdateCommand messageUpdateCommand;
 
 	private MessageUpdateService messageUpdateService;
 
 	@Autowired
-	public void setUpdateMessageCommand(UpdateMessageCommand updateMessageCommand) {
-		UpdateMessageCommand.updateMessageCommand = updateMessageCommand;
+	public void setUpdateMessageCommand(MessageUpdateCommand messageUpdateCommand) {
+		MessageUpdateCommand.messageUpdateCommand = messageUpdateCommand;
 	}
 
 	@Autowired
@@ -24,7 +24,7 @@ public class UpdateMessageCommand implements Command {
 	}
 
 	static Command of() {
-		return updateMessageCommand;
+		return messageUpdateCommand;
 	}
 
 	@Override

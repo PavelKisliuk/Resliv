@@ -1,7 +1,5 @@
 package com.github.pavelkisliuk.resliv.entity;
 
-import com.google.gson.annotations.Expose;
-
 import java.util.List;
 import java.util.Objects;
 

@@ -15,7 +15,6 @@ import java.util.Map;
 public class ReslivController {
 	private static final String COMMAND = "command";
 
-
 	@RequestMapping(method = RequestMethod.GET)
 	public Map<String, String> get(@RequestParam Map<String, String> params) {
 		Command command = GetCommandType.valueOf(params.get(COMMAND)).get();

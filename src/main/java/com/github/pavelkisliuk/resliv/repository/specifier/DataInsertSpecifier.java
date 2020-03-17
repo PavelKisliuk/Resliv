@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Component
-public class NewDataInsertSpecifier{
+public class DataInsertSpecifier {
 	private MessageRepository messageRepository;
 
 	private CityRepository cityRepository;
@@ -29,7 +29,7 @@ public class NewDataInsertSpecifier{
 	@Transactional
 	public void insert(Message message, List<String> cityList) {
 		messageRepository.save(message);
-		for(String cityName : cityList) {
+		for (String cityName : cityList) {
 			City newCity = new City();
 			newCity.setMessageId(message.getId());
 			newCity.setName(cityName.toUpperCase());
