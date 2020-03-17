@@ -100,3 +100,26 @@ $(".btnUpdateMessage").click(function () {
         }
     }
 });
+
+$(".btnDeleteCities").click(function () {
+    const cities = [];
+    cities.push({id : 7, name : "САНКТПЕТЕРБУРГ", messageId : 5});
+    cities.push({id : 8, name : "САНТ-ПЕТЕРБУРГ", messageId : 5});
+    cities.push({id : 9, name : "САНТ ПЕТЕРБУРГ", messageId : 5});
+
+    $.post("/start",
+        {
+            command : "REMOVE_CITY",
+            new : JSON.stringify(cities)
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        if (response.exist) {
+            alert(response.exist);
+        } else {
+            alert(response.success);
+        }
+    }
+});
