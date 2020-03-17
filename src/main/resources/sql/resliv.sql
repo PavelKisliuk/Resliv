@@ -5,7 +5,7 @@ DROP TABLE Messages;
 CREATE TABLE Messages
 (
     message_Id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
-    message    text   NOT NULL UNIQUE,
+    message    varchar(1024)   NOT NULL UNIQUE,
     PRIMARY KEY (message_Id)
 );
 
@@ -19,7 +19,7 @@ VALUES ('В Москве можно посетить следующие мест
 CREATE TABLE Cities
 (
     city_Id    bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
-    name       text   NOT NULL UNIQUE,
+    name       varchar(256)   NOT NULL UNIQUE,
     message_Id bigint NOT NULL,
     FOREIGN KEY (message_Id) REFERENCES Messages (message_Id)
 );
