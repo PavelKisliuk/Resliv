@@ -36,8 +36,9 @@ public class AddDataInsertService {
 	public Map<String, String> serve(NewData newData) {
 		Map<String, String> response = new HashMap<>();
 		Message message = new Message();
+		message.setMessage(newData.getMessage());
 
-		if (dataExistValidator.isMessageExist(newData.getMessage())) {
+		if (dataExistValidator.isMessageExist(message)) {
 			response.put(KEY_EXIST, VALUE_MESSAGE_EXIST);
 			return response;
 		}
@@ -47,8 +48,6 @@ public class AddDataInsertService {
 			response.put(KEY_EXIST, VALUE_CITY_EXIST + city.get());
 			return response;
 		}
-
-		message.setMessage(newData.getMessage());
 		newDataInsertSpecifier.insert(message, newData.getCities());
 
 		response.put(KEY_SUCCESS, VALUE_SUCCESS);

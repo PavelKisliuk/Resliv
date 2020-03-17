@@ -72,3 +72,31 @@ $(".btnAddCity").click(function () {
         }
     }
 });
+
+$(".btnUpdateMessage").click(function () {
+    const cities = [];
+    cities.push("Нью-Йорк");
+    cities.push("Нью-Ёрк");
+    cities.push("Нью Йорк");
+    const message = "В Нью-Йорке можно посетить следующие места: Статуя Свободы, Таймс Сквер и Небоскреб Эмпайр-стейт-Билдинг.";
+    const messageId = 6;
+    let updateData = { message : message, cities : cities, messageId : messageId};
+
+    const updateMessage = {id : messageId, message : message};
+
+    $.post("/start",
+        {
+            command : "UPDATE_MESSAGE",
+            new : JSON.stringify(updateMessage)
+        }, request).fail(function () {
+        window.location.href = serverErrorPage;
+    });
+
+    function request(response) {
+        if (response.exist) {
+            alert(response.exist);
+        } else {
+            alert(response.success);
+        }
+    }
+});

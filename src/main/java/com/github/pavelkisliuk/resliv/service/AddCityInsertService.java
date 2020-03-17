@@ -14,7 +14,7 @@ public class AddCityInsertService {
 	private static final String KEY_EXIST = "exist";
 	private static final String KEY_SUCCESS = "success";
 
-	private static final String VALUE_CITY_EXIST = "This city already exist.";
+	private static final String VALUE_CITY_EXIST = "Such city already exist.";
 	private static final String VALUE_SUCCESS = "City appended successfully.";
 
 	private DataExistValidator dataExistValidator;

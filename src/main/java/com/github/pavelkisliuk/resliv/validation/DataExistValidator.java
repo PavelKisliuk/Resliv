@@ -1,6 +1,7 @@
 package com.github.pavelkisliuk.resliv.validation;
 
 import com.github.pavelkisliuk.resliv.entity.City;
+import com.github.pavelkisliuk.resliv.entity.Message;
 import com.github.pavelkisliuk.resliv.repository.specifier.IsCityNameExistSpecifier;
 import com.github.pavelkisliuk.resliv.repository.specifier.IsMessageNameExistSpecifier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class DataExistValidator {
 		this.isMessageNameExistSpecifier = isMessageNameExistSpecifier;
 	}
 
-	public boolean isMessageExist(String newMessage) {
-		return isMessageNameExistSpecifier.isExist(newMessage);
+	public boolean isMessageExist(Message newMessage) {
+		return isMessageNameExistSpecifier.isExist(newMessage.getMessage());
 	}
 
 	public boolean isCityExist(City city) {
