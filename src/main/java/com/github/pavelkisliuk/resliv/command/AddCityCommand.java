@@ -29,7 +29,7 @@ public class AddCityCommand implements Command {
 
 	@Override
 	public Map<String, String> execute(Map<String, String> params) {
-		City newCity = GSON.fromJson(params.get(KEY_NEW), City.class);
+		City newCity = GSON.fromJson(params.get(KEY_DATA), City.class);
 		return addCityInsertService.serve(newCity);
 	}
 }

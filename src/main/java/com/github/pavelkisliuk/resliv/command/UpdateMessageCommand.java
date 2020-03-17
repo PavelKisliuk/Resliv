@@ -29,7 +29,7 @@ public class UpdateMessageCommand implements Command {
 
 	@Override
 	public Map<String, String> execute(Map<String, String> params) {
-		Message newMessage = GSON.fromJson(params.get(KEY_NEW), Message.class);
+		Message newMessage = GSON.fromJson(params.get(KEY_DATA), Message.class);
 		return messageUpdateService.serve(newMessage);
 	}
 }

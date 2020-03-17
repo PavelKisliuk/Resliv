@@ -8,6 +8,6 @@ import java.util.Map;
 @Component
 public interface Command {
 	Gson GSON = new Gson();
-	String KEY_NEW = "new";
+	String KEY_DATA = "data";
 	Map<String, String> execute(Map<String, String> params);
 }

@@ -31,7 +31,7 @@ public class CityRemoveCommand implements Command {
 
 	@Override
 	public Map<String, String> execute(Map<String, String> params) {
-		List<City> cityList = Arrays.asList(GSON.fromJson(params.get(KEY_NEW), City[].class));
+		List<City> cityList = Arrays.asList(GSON.fromJson(params.get(KEY_DATA), City[].class));
 		return cityRemoveService.serve(cityList);
 	}
 }

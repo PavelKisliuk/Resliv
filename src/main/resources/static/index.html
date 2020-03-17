@@ -3,14 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <table class="wrapper" border="1" width="100%"></table>
-<button type="button" class="btnAdd">Add</button>
-<button type="button" class="btnAddCity">Add City</button>
-<button type="button" class="btnUpdateMessage">Update message</button>
-<button type="button" class="btnDeleteCities">Delete cities</button>
-<button type="button" class="btnDelete">Delete</button>
+<button type="button"><a href="#openModal">Add</a></button>
+
+<div id="openModal" class="modalDialog">
+    <div>
+        <ul>
+            <li>
+                <label>Введите название города:</label>
+            </li>
+            <li>
+                <label>
+                    <input id="newCityNewData"/>
+                </label>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <label>Введите сообщение:</label>
+            </li>
+            <li>
+                <label>
+                    <input id="newMessageNewData" size="49"/>
+                </label>
+            </li>
+        </ul>
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <button type="button" class="confirmNewData"> <a href="#close" title="Закрыть">Save</a></button>
+    </div>
+</div>
+
+<div id="openModalAddCity" class="modalDialog">
+    <div>
+        <ul>
+            <li>
+                <label>Введите название города:</label>
+            </li>
+            <li>
+                <label>
+                    <input id="newCityAddCity"/>
+                </label>
+            </li>
+        </ul>
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <button type="button" class="confirmNewCity"> <a href="#close" title="Закрыть">Save</a></button>
+    </div>
+</div>
+
+<div id="openModalUpdateMessage" class="modalDialog">
+    <div>
+        <ul>
+            <li>
+                <label>Введите сообщение:</label>
+            </li>
+            <li>
+                <label>
+                    <input id="updateMessage" size="49"/>
+                </label>
+            </li>
+        </ul>
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <button type="button" class="confirmUpdateMessage"> <a href="#close" title="Закрыть">Save</a></button>
+    </div>
+</div>
+
+<div id="openModalDeleteCities" class="modalDialog">
+    <div>
+        <ul class="deleteCitiesUL">
+
+        </ul>
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <button type="button" class="confirmDeleteCities"> <a href="#close" title="Закрыть">Delete</a></button>
+    </div>
+</div>
+
+<div id="openModalDelete" class="modalDialog">
+    <div>
+        <ul>
+            <li><label>Вы уверены, что хотите удалить данные?</label></li>
+        </ul>
+
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <button type="button" class="confirmDelete"> <a href="#close" title="Закрыть">Yes</a></button>
+    </div>
+</div>
+
 </body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript" src="index.js"></script>

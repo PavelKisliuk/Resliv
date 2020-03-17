@@ -29,7 +29,7 @@ public class DataRemoveCommand implements Command {
 
 	@Override
 	public Map<String, String> execute(Map<String, String> params) {
-		Message message = GSON.fromJson(params.get(KEY_NEW), Message.class);
+		Message message = GSON.fromJson(params.get(KEY_DATA), Message.class);
 		return dataRemoveService.serve(message);
 	}
 }

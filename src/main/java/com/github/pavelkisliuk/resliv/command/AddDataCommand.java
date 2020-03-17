@@ -29,7 +29,7 @@ public class AddDataCommand implements Command {
 
 	@Override
 	public Map<String, String> execute(Map<String, String> params) {
-		NewData newData = GSON.fromJson(params.get(KEY_NEW), NewData.class);
+		NewData newData = GSON.fromJson(params.get(KEY_DATA), NewData.class);
 		return addDataInsertService.serve(newData);
 	}
 }

@@ -2,6 +2,7 @@ package com.github.pavelkisliuk.resliv.validation;
 
 import com.github.pavelkisliuk.resliv.entity.City;
 import com.github.pavelkisliuk.resliv.entity.Message;
+import com.github.pavelkisliuk.resliv.repository.specifier.CityAmountSpecifier;
 import com.github.pavelkisliuk.resliv.repository.specifier.IsCityNameExistSpecifier;
 import com.github.pavelkisliuk.resliv.repository.specifier.IsMessageNameExistSpecifier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class DataExistValidator {
 	private IsCityNameExistSpecifier isCityNameExistSpecifier;
 	private IsMessageNameExistSpecifier isMessageNameExistSpecifier;
+	private CityAmountSpecifier cityAmountSpecifier;
 
 	@Autowired
 	public void setIsCityNameExistSpecifier(IsCityNameExistSpecifier isCityNameExistSpecifier) {
@@ -23,6 +25,11 @@ public class DataExistValidator {
 	@Autowired
 	public void setIsMessageNameExistSpecifier(IsMessageNameExistSpecifier isMessageNameExistSpecifier) {
 		this.isMessageNameExistSpecifier = isMessageNameExistSpecifier;
+	}
+
+	@Autowired
+	public void setCityAmountSpecifier(CityAmountSpecifier cityAmountSpecifier) {
+		this.cityAmountSpecifier = cityAmountSpecifier;
 	}
 
 	public boolean isMessageExist(Message newMessage) {
@@ -40,5 +47,9 @@ public class DataExistValidator {
 			}
 		}
 		return Optional.empty();
+	}
+
+	public boolean isEnoughCities(List<City> cityList) {
+		return cityAmountSpecifier.amount(cityList.get(0).getMessageId()) > cityList.size();
 	}
 }
