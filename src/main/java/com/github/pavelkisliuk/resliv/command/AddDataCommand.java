@@ -9,13 +9,13 @@ import java.util.Map;
 
 @Component
 public class AddDataCommand implements Command {
-	private static AddDataCommand addDataPostCommand;
+	private static AddDataCommand addDataCommand;
 
 	private AddDataInsertService addDataInsertService;
 
 	@Autowired
-	public void setAddDataPostCommand(AddDataCommand addDataPostCommand) {
-		AddDataCommand.addDataPostCommand = addDataPostCommand;
+	public void setAddDataPostCommand(AddDataCommand addDataCommand) {
+		AddDataCommand.addDataCommand = addDataCommand;
 	}
 
 	@Autowired
@@ -24,7 +24,7 @@ public class AddDataCommand implements Command {
 	}
 
 	static Command of() {
-		return addDataPostCommand;
+		return addDataCommand;
 	}
 
 	@Override

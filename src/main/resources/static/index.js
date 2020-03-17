@@ -45,7 +45,7 @@ $(".btnAdd").click(function () {
     }
 });
 
-$(".btnUpdate").click(function () {
+$(".btnAddCity").click(function () {
     const cities = [];
     cities.push("Нью-Йорк");
     cities.push("Нью-Ёрк");
@@ -54,10 +54,12 @@ $(".btnUpdate").click(function () {
     const messageId = 6;
     let updateData = { message : message, cities : cities, messageId : messageId};
 
+    const newCity = {id : null, name : "Нью Йорк", messageId : 6};
+
     $.post("/start",
         {
-            command : "UPDATE_DATA",
-            new : JSON.stringify(updateData)
+            command : "ADD_CITY",
+            new : JSON.stringify(newCity)
         }, request).fail(function () {
         window.location.href = serverErrorPage;
     });
