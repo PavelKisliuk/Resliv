@@ -20,6 +20,7 @@ public class AppConfig {
 		ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
 		resourceDatabasePopulator.addScript(new ClassPathResource("/sql/data.sql"));
 		resourceDatabasePopulator.setContinueOnError(true);
+		resourceDatabasePopulator.setSqlScriptEncoding("UTF8");
 		DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
 		dataSourceInitializer.setDataSource(dataSource);
 		dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
