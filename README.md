@@ -21,3 +21,16 @@ src/main/resources/hibernate.cfg.xml
 Для управления данными необходимо в адресной строке браузера ввести следующий адрес:
 http://localhost:8080
 
+Возможности по редактированию городов и сообщений представлены здесь:
+https://github.com/PavelKisliuk/Resliv/blob/master/src/main/resources/img/Интерфейс.jpg
+src/main/resources/img/Интерфейс.jpg
+
+Данные бота:
+bot.username = ReslivTestBot
+bot.token = 1057831883:AAH2x4lXfBDn89_YYBQl_ZSUJ0jELRx7V6s
+
+Система работает по следующей схеме:
+Controller <-> Command <-> Service <-> Specification <-> Repository
+
+1. Данные приходят на контроллер, в котором выбирается команда по обработке этих данных.
+2.  
